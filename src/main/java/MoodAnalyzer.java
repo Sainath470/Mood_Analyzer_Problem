@@ -1,6 +1,6 @@
 public class MoodAnalyzer {
-    public String moodAnalyser()
+    public String moodAnalyser(String message)
     {
-       return message;
+       return "SAD";
     }
 }
