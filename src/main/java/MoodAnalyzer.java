@@ -10,9 +10,14 @@ public class MoodAnalyzer {
         this.message = message;
     }
     public String moodAnalyser() {
-        if(message.toLowerCase(Locale.ROOT).contains("sad")) {
-            return "SAD";
+        try {
+            if (message.toLowerCase(Locale.ROOT).contains("sad")) {
+                return "SAD";
+            } else
+                return "HAPPY";
+        } catch(NullPointerException e)
+        {
+            return "true";
         }
-        return "HAPPY";
     }
 }
