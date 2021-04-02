@@ -11,6 +11,5 @@ class MoodAnalyzerTest {
         moodTesting.message=null;
         String mood_Store=moodTesting.moodAnalyser();
         Assertions.assertEquals("HAPPY",mood_Store);
-
     }
 }
