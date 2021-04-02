@@ -1,11 +1,18 @@
+import java.util.Locale;
 public class MoodAnalyzer {
-    public String moodAnalyser(String message)
+    String message;
+    public MoodAnalyzer()
     {
-       if(message.contains("Sad"))
-       {
-           return "SAD";
-       }
-       else
-           return "HAPPY";
+
+    }
+
+    public MoodAnalyzer(String message) {
+        this.message = message;
+    }
+    public String moodAnalyser() {
+        if(message.toLowerCase(Locale.ROOT).contains("sad")) {
+            return "SAD";
+        }
+        return "HAPPY";
     }
 }
