@@ -1,6 +1,6 @@
 import java.util.Locale;
 public class MoodAnalyzer {
-    String message;
+    public String message;
 
     public MoodAnalyzer() {
 
@@ -10,14 +10,15 @@ public class MoodAnalyzer {
         this.message = message;
     }
 
-    public String moodAnalyser() {
+    public String moodAnalyser(String message) throws MoodAnalyzerException {
         try {
             if (message.toLowerCase(Locale.ROOT).contains("sad")) {
                 return "SAD";
-            } else
-                return "HAPPY";
+            }
+             else
+                    return "HAPPY";
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalyzerException("You have given NULL, PLEASE TRY AGAIN");
         }
     }
-}
+    }
