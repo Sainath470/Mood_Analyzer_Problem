@@ -1,23 +1,24 @@
 import java.util.Locale;
 public class MoodAnalyzer {
-    String message;
+    public String message;
 
     public MoodAnalyzer() {
-
     }
-
     public MoodAnalyzer(String message) {
         this.message = message;
     }
 
-    public String moodAnalyser() {
+    public String moodAnalyser(String message) throws MoodAnalyzerException {
         try {
+            if(message.length()==0)
+                throw new MoodAnalyzerException(MoodAnalyzerException.exceptionType.EMPTY,"YOU HAVE GIVEN EMPTY,PLEASE CHECK AGAIN");
             if (message.toLowerCase(Locale.ROOT).contains("sad")) {
                 return "SAD";
-            } else
-                return "HAPPY";
+            }
+             else
+                    return "HAPPY";
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalyzerException(MoodAnalyzerException.exceptionType.NULL,"You have given NULL, PLEASE TRY AGAIN");
         }
     }
-}
+    }
