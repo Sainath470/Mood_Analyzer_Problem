@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
-
 class MoodAnalyzerTest {
     @Test
     public void given_Mood_When_Sad_ReturnMessage() throws MoodAnalyzerException{
