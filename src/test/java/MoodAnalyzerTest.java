@@ -18,12 +18,28 @@ class MoodAnalyzerTest {
         String mood_Store = moodTesting.moodAnalyser("I am in Happy Mood");
         Assertions.assertEquals("HAPPY", mood_Store);
     }
-    @SuppressWarnings("deprecation")
+
     @Test()
-    public void given_Null_ThrowException(){
-        ExpectedException exceptionRule= ExpectedException.none();
-        exceptionRule.expect(MoodAnalyzerException.class);
-        String mood="NULL";
-        Assertions.assertEquals("NULL", mood);
+    public void given_Null_ThrowException() {
+        MoodAnalyzer moodTesting=new MoodAnalyzer(null);
+        try{
+            moodTesting.moodAnalyser(null);
+        }
+        catch(MoodAnalyzerException e)
+        {
+            Assertions.assertEquals(MoodAnalyzerException.exceptionType.NULL,e.type);
+        }
     }
+
+        @Test
+        public void given_Empty_ThrowException() {
+            MoodAnalyzer moodTesting=new MoodAnalyzer();
+            try{
+                moodTesting.moodAnalyser("");
+            }
+            catch(MoodAnalyzerException e)
+            {
+                Assertions.assertEquals(MoodAnalyzerException.exceptionType.EMPTY,e.type);
+            }
+        }
 }
